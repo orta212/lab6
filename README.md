@@ -45,5 +45,31 @@ keterangan :
 
 ### buat fungsi tambah() untuk menambahkan data
 ![def tambah](https://user-images.githubusercontent.com/47426095/205480250-66b227b9-7883-40ab-bec4-615bf969050a.PNG) <br>
+```python
+def tambah():
+    # buat inputan untuk mengisi nama
+    nama = input("Masukkan Nama : ")
+    while len(nama) < 3:
+        nama = input("Masukkan Nama : ")
+    
+    # jika nim yang di input tersedia pada variabel data, cetak pesan lalu lakukan input ulang
+    while nama in data['nama']:
+        print("Mahasiswa dengan nama yang sama sudah ada")
+        nama = input("Masukkan Nama : ")
+    
+    nilai = input("masukkan nilai : ")
+    while not nilai.isnumeric():
+        nilai = input("masukkan nilai : ")
+    
+    data['nama'].append(nama)
+    data['nilai'].append(int(nilai))
+    print("Data Berhasil Ditambah!!")
+    ```
 keterangan : 
-* 
+* lakukan input nama
+* lakukan pengecekan terhadap inputan nama, selama kurang dari 3 karakter masukkan ulang nama
+* lakukan pengecekan terhadap inputan nama, selama ada nama yang sama pada data, maka masukkan nama secara berulang
+* lakukan input nilai
+* selama variabel nilai bukan angka, maka ulamgi hingga user memasukkan angka
+* masukkan data nama dan nilai yang baru ke dalam data menggunakan fungsi append()
+* kemudian cetak pesan berhasil menambah data
