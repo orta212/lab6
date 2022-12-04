@@ -64,7 +64,7 @@ def tambah():
     data['nama'].append(nama)
     data['nilai'].append(int(nilai))
     print("Data Berhasil Ditambah!!")
-    ```
+```
 keterangan : 
 * lakukan input nama
 * lakukan pengecekan terhadap inputan nama, selama kurang dari 3 karakter masukkan ulang nama
