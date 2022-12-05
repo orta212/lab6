@@ -73,3 +73,44 @@ keterangan :
 * selama variabel nilai bukan angka, maka ulamgi hingga user memasukkan angka
 * masukkan data nama dan nilai yang baru ke dalam data menggunakan fungsi append()
 * kemudian cetak pesan berhasil menambah data
+
+### buat fungsi hapus(nama) untuk menghapus data
+![def hapus](https://user-images.githubusercontent.com/47426095/205586909-b051b1c1-2836-4c66-8082-baca2c5636d2.PNG) <br>
+``` python
+def hapus(nama):
+    if nama in data['nama']:
+        # buat dictionary kosong untuk menampilkan data yang cocok sesuai input NIM
+        dataMhs = {}
+        index = data['nama'].index(nama)
+
+        # lakukan pengisian data yang cocok ke dalam variabel dataMhs
+        for key in data.keys():
+            dataMhs[key] = []
+            dataMhs[key].append(data[key][index])
+        print(tabulate(dataMhs, headers="keys", tablefmt="rounded_outline"))
+        # lakukan konfirmasi penghapusan
+        confirm = input("anda yakin ingin menghapus data ini?? (y/t)")
+
+        # jika input selain y atau t lakukan konfirmasi berulang
+        while (confirm not in ['y', 't']):
+            print("input salah")
+            confirm = input("anda yakin ingin menghapus data ini?? (y/t)")
+
+        # jika konfirmasi selesai dilakukan, maka hapus data mahasiswa pada variabel data
+        if confirm == "y":
+            for key in data.keys():
+                data[key].pop(index)
+            print("Data Berhasil Dihapus!!\n")
+
+    else:
+        print("data nama tidak ditemukan!!")
+```
+Keterangan : 
+* lakukan input nama
+* jika tidak ada data yang sesuai, taampilkan pesan "data nama tidak sesuai"
+* lakukan pengecekan terhadap inputan nama, selama ada nama yang sama pada data, maka cetak pesan bahwa data sudah ada kemudian masukkan nama secara berulang
+* buat dictionary untuk menampung nama mahasiswa berdasarkan index, kemudian tampilkan data lengkap mahasiswa terpilih
+* lakukan konfirmasi penghapusan data
+* jika input selain y atau t lakukan konfirmasi berulang
+* jika input y maka hapus dengan fungsi pop(index)
+* kemudian cetak pesan berhasil menghapus data
